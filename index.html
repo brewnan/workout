@@ -202,6 +202,94 @@ input[type="checkbox"] {
 Part 2/3 coming now.
 
 <section> <h2>Day 3 – Lower Body + Core</h2> <ul> <li>Goblet squats – 12 reps</li> <li>Dumbbell RDLs – 10 reps</li> <li>Step-ups or lunges – 8–10 reps/leg</li> <li>Calf raises – 20 reps</li> <li>Kettlebell sumo squats – 10 reps</li> <li>Leg raises – 12 reps</li> <li>Russian twists – 20 total</li> </ul> </section> <section> <h2>Day 4 – Full Body (Hybrid – KB/DB)</h2> <ul> <li>Kettlebell swings – 15–20 reps</li> <li>Push-ups – 10–15 reps</li> <li>Dumbbell rows – 10/side</li> <li>Goblet squats – 15 reps</li> <li>Dumbbell/Kettlebell deadlifts – 10 reps</li> <li>Farmer’s carry – 30 seconds</li> <li>Sit-ups or crunches – 15 reps</li> </ul> </section> <section> <h2>Weekly Progress Tracker</h2> <table> <thead> <tr> <th>Day</th> <th>Workout</th> <th>Week 1</th> <th>Week 2</th> <th>Week 3</th> <th>Week 4</th> <th>Notes</th> </tr> </thead> <tbody> <tr> <td>Monday</td> <td>Full Body (Bodyweight)</td> <td><input type="checkbox" data-key="m1"></td> <td><input type="checkbox" data-key="m2"></td> <td><input type="checkbox" data-key="m3"></td> <td><input type="checkbox" data-key="m4"></td> <td></td> </tr> <tr> <td>Tuesday</td> <td>Upper Body (Weights)</td> <td><input type="checkbox" data-key="t1"></td> <td><input type="checkbox" data-key="t2"></td> <td><input type="checkbox" data-key="t3"></td> <td><input type="checkbox" data-key="t4"></td> <td></td> </tr> <tr> <td>Wednesday</td> <td>Lower Body + Core</td> <td><input type="checkbox" data-key="w1"></td> <td><input type="checkbox" data-key="w2"></td> <td><input type="checkbox" data-key="w3"></td> <td><input type="checkbox" data-key="w4"></td> <td></td> </tr> <tr> <td>Thursday</td> <td>Full Body (Hybrid)</td> <td><input type="checkbox" data-key="th1"></td> <td><input type="checkbox" data-key="th2"></td> <td><input type="checkbox" data-key="th3"></td> <td><input type="checkbox" data-key="th4"></td> <td></td> </tr> <tr> <td>Friday</td> <td>Rest / Stretch</td> <td><input type="checkbox" data-key="f1"></td> <td><input type="checkbox" data-key="f2"></td> <td><input type="checkbox" data-key="f3"></td> <td><input type="checkbox" data-key="f4"></td> <td></td> </tr> </tbody> </table> </section> <script> // Click to toggle completed (cross out) document.querySelectorAll('ul li').forEach(item => { let pressTimer; const longPressDuration = 600; // ms let longPressFired = false; // Handle click/tap: toggle completed only if no long press item.addEventListener('click', e => { if (longPressFired) { longPressFired = false; return; // skip toggling if long press triggered } item.classList.toggle('completed'); }); // Long press handlers for mouse and touch item.addEventListener('touchstart', e => { longPressFired = false; pressTimer = setTimeout(() => { shuffleExercise(item); longPressFired = true; }, longPressDuration); }); item.addEventListener('touchend', e => { clearTimeout(pressTimer); }); item.addEventListener('mousedown', e => { longPressFired = false; pressTimer = setTimeout(() => { shuffleExercise(item); longPressFired = true; }, longPressDuration); }); item.addEventListener('mouseup', e => { clearTimeout(pressTimer); }); item.addEventListener('mouseleave', e => { clearTimeout(pressTimer); }); }); // Pools of similar exercises for swapping const exercisePools = { "Day 1 – Full Body (Bodyweight)": [ "Bodyweight squats – 20 reps", "Jump squats – 15 reps", "Wall sit – 30 seconds", "Glute bridges – 15–20 reps", "Bird-dogs – 8 per side", "Step-back lunges – 10 per leg", "Plank shoulder taps – 20 total", "Incline push-ups – 10–15 reps", "Wall push-ups – 15 reps" ], "Day 2 – Upper Body (Weights)": [ "Dumbbell shoulder press – 10–12 reps", "Bent-over rows – 10–12 reps", "Chest press – 10–12 reps", "Bicep curls – 12 reps", "Tricep overhead extensions – 12 reps", "Side planks – 30 sec each side", "Dumbbell lateral raises – 12 reps", "Dumbbell hammer curls – 12 reps", "Push-ups – 15 reps" ], "Day 3 – Lower Body + Core": [ "Goblet squats – 12 reps", "Dumbbell RDLs – 10 reps", "Step-ups or lunges – 8–10 reps/leg", "Calf raises – 20 reps", "Kettlebell sumo squats – 10 reps", "Leg raises – 12 reps", "Russian twists – 20 total", "Mountain climbers – 30 seconds", "Side leg raises – 15 reps per side" ], "Day 4 – Full Body (Hybrid – KB/DB)": [ "Kettlebell swings – 15–20 reps", "Push-ups – 10–15 reps", "Dumbbell rows – 10/side", "Goblet squats – 15 reps", "Dumbbell/Kettlebell deadlifts – 10 reps", "Farmer’s carry – 30 seconds", "Sit-ups or crunches – 15 reps", "Kettlebell clean and press – 10 reps", "Renegade rows – 12 reps" ] }; function shuffleExercise(item) { const section = item.closest('section'); if (!section) return; const sectionTitle = section.querySelector('h2').textContent.trim(); const pool = exercisePools[sectionTitle]; if (!pool) return; const currentText = item.textContent.trim(); const alternatives = pool.filter(ex => ex !== currentText); if (alternatives.length === 0) return; const newExercise = alternatives[Math.floor(Math.random() * alternatives.length)]; item.textContent = newExercise; item.classList.remove('completed'); // remove cross-out on swap } // Persist progress tracker checkboxes to localStorage document.querySelectorAll('input[type="checkbox"]').forEach(cb => { const key = cb.getAttribute('data-key'); if (!key) return; cb.checked = localStorage.getItem(key) === 'true'; cb.addEventListener('change', () => { localStorage.setItem(key, cb.checked); }); }); </script>
-Part 3/3 coming now.
+Part 3/3 coming now.  <script>
+    (() => {
+      const floatingBtn = document.getElementById('timer-floating-button');
+      const timerModal = document.getElementById('timer-modal');
+      const timerDisplay = document.getElementById('timer-display');
+      const timerButtons = document.querySelectorAll('.timer-btn');
+      const startStopBtn = document.getElementById('timer-start-stop');
 
-<!-- Floating Timer Button --> <div id="timer-floating-button" title="Timer">⏱</div> <!-- Timer Modal --> <div id="timer-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="timer-title"> <h3 id="timer-title">Set Timer</h3> <div id="timer-display">00:00</div> <div style="display:flex; gap: 0.5rem; margin-bottom: 0.5rem;"> <button class="timer-btn" data-seconds="30">30 sec</button> <button class="timer-btn" data-seconds="60">60 sec</button> <button class="timer-btn" data-seconds="90">90 sec</button> </div> <!-- Removed start button since timer starts immediately --> </div> <script> const timerBtn = document.getElementById('timer-floating-button'); const timerModal = document.getElementById('timer-modal'); const timerDisplay = document.getElementById('timer-display'); const timerButtons = timerModal.querySelectorAll('.timer-btn'); let timerInterval = null; let timeLeft = 0; function updateTimerDisplay(seconds) { const mins = Math.floor(seconds / 60); const secs = seconds % 60; timerDisplay.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`; } function beep() { // Simple beep using Web Audio API try { const audioCtx = new (window.AudioContext || window.webkitAudioContext)(); const oscillator = audioCtx.createOscillator(); const gainNode = audioCtx.createGain(); oscillator.connect(gainNode); gainNode.connect(audioCtx.destination); oscillator.type = 'sine'; oscillator.frequency.setValueAtTime(1000, audioCtx.currentTime); // 1000 Hz tone gainNode.gain.setValueAtTime(0.2, audioCtx.currentTime); oscillator.start(); oscillator.stop(audioCtx.currentTime + 0.3); } catch { // fallback beep alert('Timer done!'); } } function startTimer(seconds) { clearInterval(timerInterval); timeLeft = seconds; updateTimerDisplay(timeLeft); timerInterval = setInterval(() => { timeLeft--; updateTimerDisplay(timeLeft); if (timeLeft <= 0) { clearInterval(timerInterval); beep(); // Reset display after beep updateTimerDisplay(0); } }, 1000); } timerBtn.addEventListener('click', () => { if (timerModal.style.display === 'block') { timerModal.style.display = 'none'; timerModal.setAttribute('aria-hidden', 'true'); } else { timerModal.style.display = 'block'; timerModal.setAttribute('aria-hidden', 'false'); } }); timerButtons.forEach(btn => { btn.addEventListener('click', () => { const seconds = parseInt(btn.getAttribute('data-seconds'), 10); startTimer(seconds); }); }); // Close modal if clicking outside it window.addEventListener('click', e => { if (!timerModal.contains(e.target) && e.target !== timerBtn) { timerModal.style.display = 'none'; timerModal.setAttribute('aria-hidden', 'true'); } }); </script> </body> </html>
+      let timerDuration = 0;
+      let timerRemaining = 0;
+      let timerInterval = null;
+      let timerRunning = false;
+
+      function updateDisplay(seconds) {
+        const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
+        const secs = (seconds % 60).toString().padStart(2, '0');
+        timerDisplay.textContent = `${mins}:${secs}`;
+      }
+
+      function beep() {
+        try {
+          const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+          for (let i = 0; i < 3; i++) {
+            const oscillator = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(1000, audioCtx.currentTime + i * 0.4);
+            gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime + i * 0.4);
+
+            oscillator.start(audioCtx.currentTime + i * 0.4);
+            oscillator.stop(audioCtx.currentTime + i * 0.4 + 0.25);
+          }
+        } catch {
+          alert('Timer done!');
+        }
+      }
+
+      function startTimer() {
+        if (timerRemaining <= 0) return;
+        timerRunning = true;
+        startStopBtn.textContent = 'Stop';
+        timerInterval = setInterval(() => {
+          timerRemaining--;
+          updateDisplay(timerRemaining);
+          if (timerRemaining <= 0) {
+            clearInterval(timerInterval);
+            timerRunning = false;
+            startStopBtn.textContent = 'Start';
+            beep();
+          }
+        }, 1000);
+      }
+
+      function stopTimer() {
+        timerRunning = false;
+        clearInterval(timerInterval);
+        startStopBtn.textContent = 'Start';
+      }
+
+      floatingBtn.addEventListener('click', () => {
+        timerModal.style.display = timerModal.style.display === 'none' ? 'block' : 'none';
+      });
+
+      timerButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          stopTimer();
+          timerDuration = parseInt(btn.getAttribute('data-seconds'), 10);
+          timerRemaining = timerDuration;
+          updateDisplay(timerRemaining);
+        });
+      });
+
+      startStopBtn.addEventListener('click', () => {
+        if (timerRunning) {
+          stopTimer();
+        } else {
+          startTimer();
+        }
+      });
+
+      updateDisplay(0);
+    })();
+  </script>
+
+</body>
+</html>
