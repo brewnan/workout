@@ -107,36 +107,28 @@
       transform: scale(1.2);
     }
 
-    /* Floating Timer Button */
     #timer-floating-button {
       position: fixed;
       bottom: 20px;
-      left: 20px; /* moved to bottom-left */
-      width: 38px;
-      height: 38px;
-      background: rgba(255, 111, 0, 0.85);
-      color: white;
-      opacity: 0.6;
-      transition: opacity 0.3s ease;
-      cursor: pointer;
+      left: 20px;
+      background: #ff6f00;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+      color: white;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 1.4rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+      font-size: 1.8rem;
+      cursor: pointer;
       z-index: 1000;
     }
 
-    #timer-floating-button:hover {
-      opacity: 1;
-    }
-
-    /* Timer Modal */
     #timer-modal {
       display: none;
       position: fixed;
-      bottom: 70px;
+      bottom: 80px;
       left: 20px;
       background: #222;
       padding: 1rem 1.5rem;
@@ -147,417 +139,246 @@
       z-index: 1001;
       width: 220px;
     }
-
-    #timer-modal h3 {
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-    }
-
-    #timer-display {
-      font-size: 2rem;
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-
-    .timer-btn {
-      flex: 1;
-      margin-right: 0.5rem;
-      padding: 0.5rem;
-      border: none;
-      background: #ff6f00;
-      color: #fff;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    .timer-btn:last-child {
-      margin-right: 0;
-    }
-
-    #timer-start-stop {
-      width: 100%;
-      padding: 0.6rem;
-      border: none;
-      background: #4caf50;
-      color: #fff;
-      border-radius: 6px;
-      font-weight: 700;
-      cursor: pointer;
-    }
   </style>
 </head>
 <body>
-  <h1>Weekly Hybrid Workout Plan</h1>
-  <p class="subtitle">4 Days/Week • 15–20 Minutes • Bodyweight + Minimal Equipment<br>Each workout = 3 rounds. Rest 30–60 seconds between exercises & rounds.</p>
 
-  <section>
-    <h2>Pre-Workout Stretch Menu</h2>
-    <p style="margin-bottom: 1rem;">Pick 3–4 movements to warm up before training. Flow intuitively or mix and match!</p>
-    <div class="stretch-columns">
-      <ul>
-        <li>Jumping jacks x 30</li>
-        <li>Forward fold – 30 sec</li>
-        <li>Cat-cow x 10</li>
-        <li>High knees x 20</li>
-        <li>Neck rolls x 5 each way</li>
-        <li>Arm circles – 10 forward/backward</li>
-        <li>Hip circles – 10 reps</li>
-      </ul>
-      <ul>
-        <li>Lunging hip stretch – 30 sec/leg</li>
-        <li>Shoulder rolls – 10 reps</li>
-        <li>Inchworm to cobra – 5x</li>
-        <li>World’s greatest stretch – 2x/side</li>
-        <li>Standing side bends – 10/side</li>
-        <li>Ankle circles – 10 each</li>
-        <li>Torso twists – 20 reps</li>
-      </ul>
-    </div>
-  </section>
+<h1>Weekly Hybrid Workout Plan</h1>
+<p class="subtitle">4 Days/Week • 15–20 Minutes • Bodyweight + Minimal Equipment<br>Each workout = 3 rounds. Rest 30–60 seconds between exercises & rounds.</p>
 
-  <section>
-    <h2>Day 1 – Full Body (Bodyweight)</h2>
+<section>
+  <h2>Pre-Workout Stretch Menu</h2>
+  <p style="margin-bottom: 1rem;">Pick 3–4 movements to warm up before training. Flow intuitively or mix and match!</p>
+  <div class="stretch-columns">
     <ul>
-      <li>Bodyweight squats – 20 reps</li>
-      <li>Incline push-ups – 10–15 reps</li>
-      <li>Glute bridges – 15–20 reps</li>
-      <li>Plank shoulder taps – 20 total</li>
-      <li>Wall sit – 30 seconds</li>
-      <li>Bird-dogs – 8 per side</li>
-      <li><strong>Finisher:</strong> Plank – hold 1 minute</li>
+      <li>Jumping jacks x 30</li>
+      <li>Forward fold – 30 sec</li>
+      <li>Cat-cow x 10</li>
+      <li>High knees x 20</li>
+      <li>Neck rolls x 5 each way</li>
+      <li>Arm circles – 10 forward/backward</li>
+      <li>Hip circles – 10 reps</li>
     </ul>
-  </section>
-
-  <section>
-    <h2>Day 2 – Upper Body (Weights)</h2>
     <ul>
-      <li>Dumbbell shoulder press – 10–12 reps</li>
-      <li>Bent-over rows – 10–12 reps</li>
-      <li>Chest press – 10–12 reps</li>
-      <li>Bicep curls – 12 reps</li>
-      <li>Tricep overhead extensions – 12 reps</li>
-      <li>Side planks – 30 sec each side</li>
+      <li>Lunging hip stretch – 30 sec/leg</li>
+      <li>Shoulder rolls – 10 reps</li>
+      <li>Inchworm to cobra – 5x</li>
+      <li>World’s greatest stretch – 2x/side</li>
+      <li>Standing side bends – 10/side</li>
+      <li>Ankle circles – 10 each</li>
+      <li>Torso twists – 20 reps</li>
     </ul>
-  </section>
-  <section>
-    <h2>Day 3 – Lower Body + Core</h2>
-    <ul>
-      <li>Goblet squats – 12 reps</li>
-      <li>Dumbbell RDLs – 10 reps</li>
-      <li>Step-ups or lunges – 8–10 reps/leg</li>
-      <li>Calf raises – 20 reps</li>
-      <li>Kettlebell sumo squats – 10 reps</li>
-      <li>Leg raises – 12 reps</li>
-      <li>Russian twists – 20 total</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Day 4 – Full Body (Hybrid – KB/DB)</h2>
-    <ul>
-      <li>Kettlebell swings – 15–20 reps</li>
-      <li>Push-ups – 10–15 reps</li>
-      <li>Dumbbell rows – 10/side</li>
-      <li>Goblet squats – 15 reps</li>
-      <li>Dumbbell/Kettlebell deadlifts – 10 reps</li>
-      <li>Farmer’s carry – 30 seconds</li>
-      <li>Sit-ups or crunches – 15 reps</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Weekly Progress Tracker</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Day</th>
-          <th>Workout</th>
-          <th>Week 1</th>
-          <th>Week 2</th>
-          <th>Week 3</th>
-          <th>Week 4</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Monday</td>
-          <td>Full Body (Bodyweight)</td>
-          <td><input type="checkbox" data-key="m1"></td>
-          <td><input type="checkbox" data-key="m2"></td>
-          <td><input type="checkbox" data-key="m3"></td>
-          <td><input type="checkbox" data-key="m4"></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Tuesday</td>
-          <td>Upper Body (Weights)</td>
-          <td><input type="checkbox" data-key="t1"></td>
-          <td><input type="checkbox" data-key="t2"></td>
-          <td><input type="checkbox" data-key="t3"></td>
-          <td><input type="checkbox" data-key="t4"></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Wednesday</td>
-          <td>Lower Body + Core</td>
-          <td><input type="checkbox" data-key="w1"></td>
-          <td><input type="checkbox" data-key="w2"></td>
-          <td><input type="checkbox" data-key="w3"></td>
-          <td><input type="checkbox" data-key="w4"></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Thursday</td>
-          <td>Full Body (Hybrid)</td>
-          <td><input type="checkbox" data-key="th1"></td>
-          <td><input type="checkbox" data-key="th2"></td>
-          <td><input type="checkbox" data-key="th3"></td>
-          <td><input type="checkbox" data-key="th4"></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Friday</td>
-          <td>Rest / Stretch</td>
-          <td><input type="checkbox" data-key="f1"></td>
-          <td><input type="checkbox" data-key="f2"></td>
-          <td><input type="checkbox" data-key="f3"></td>
-          <td><input type="checkbox" data-key="f4"></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <script>
-    // Click to toggle completed state of exercises
-    document.querySelectorAll('ul li').forEach(item => {
-      let pressTimer;
-      const longPressDuration = 600; // ms
-
-      // Short press toggles completed
-      item.addEventListener('click', () => {
-        item.classList.toggle('completed');
-      });
-
-      // Long press to shuffle exercise text from pool
-      item.addEventListener('touchstart', e => {
-        pressTimer = setTimeout(() => {
-          shuffleExercise(item);
-        }, longPressDuration);
-      });
-
-      item.addEventListener('touchend', e => {
-        clearTimeout(pressTimer);
-      });
-
-      item.addEventListener('mousedown', e => {
-        pressTimer = setTimeout(() => {
-          shuffleExercise(item);
-        }, longPressDuration);
-      });
-
-      item.addEventListener('mouseup', e => {
-        clearTimeout(pressTimer);
-      });
-
-      item.addEventListener('mouseleave', e => {
-        clearTimeout(pressTimer);
-      });
-    });
-
-    // Exercise pools per day (for swapping)
-    const exercisePools = {
-      "Day 1 – Full Body (Bodyweight)": [
-        "Bodyweight squats – 20 reps",
-        "Jump squats – 15 reps",
-        "Wall sit – 30 seconds",
-        "Glute bridges – 15–20 reps",
-        "Bird-dogs – 8 per side",
-        "Step-back lunges – 10 per leg",
-        "Plank shoulder taps – 20 total",
-        "Incline push-ups – 10–15 reps",
-        "Wall push-ups – 15 reps"
-      ],
-      "Day 2 – Upper Body (Weights)": [
-        "Dumbbell shoulder press – 10–12 reps",
-        "Bent-over rows – 10–12 reps",
-        "Chest press – 10–12 reps",
-        "Bicep curls – 12 reps",
-        "Tricep overhead extensions – 12 reps",
-        "Side planks – 30 sec each side",
-        "Dumbbell lateral raises – 12 reps",
-        "Dumbbell hammer curls – 12 reps",
-        "Push-ups – 15 reps"
-      ],
-      "Day 3 – Lower Body + Core": [
-        "Goblet squats – 12 reps",
-        "Dumbbell RDLs – 10 reps",
-        "Step-ups or lunges – 8–10 reps/leg",
-        "Calf raises – 20 reps",
-        "Kettlebell sumo squats – 10 reps",
-        "Leg raises – 12 reps",
-        "Russian twists – 20 total",
-        "Mountain climbers – 30 seconds",
-        "Side leg raises – 15 reps per side"
-      ],
-      "Day 4 – Full Body (Hybrid – KB/DB)": [
-        "Kettlebell swings – 15–20 reps",
-        "Push-ups – 10–15 reps",
-        "Dumbbell rows – 10/side",
-        "Goblet squats – 15 reps",
-        "Dumbbell/Kettlebell deadlifts – 10 reps",
-        "Farmer’s carry – 30 seconds",
-        "Sit-ups or crunches – 15 reps",
-        "Kettlebell clean and press – 10 reps",
-        "Renegade rows – 12 reps"
-      ]
-    };
-
-    // Shuffle exercise function
-    function shuffleExercise(item) {
-      let section = item.closest('section');
-      if (!section) return;
-      let sectionTitle = section.querySelector('h2').textContent.trim();
-
-      const pool = exercisePools[sectionTitle];
-      if (!pool) return;
-
-      const current = item.textContent.trim();
-      const alternatives = pool.filter(ex => ex !== current);
-      if (alternatives.length === 0) return;
-
-      const newExercise = alternatives[Math.floor(Math.random() * alternatives.length)];
-      item.textContent = newExercise;
-      item.classList.remove('completed'); // remove completed on swap
-    }
-
-    // Persist checkboxes in localStorage
-    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-      const key = checkbox.getAttribute('data-key');
-      checkbox.checked = localStorage.getItem(key) === 'true';
-
-      checkbox.addEventListener('change', () => {
-        localStorage.setItem(key, checkbox.checked);
-      });
-    });
-  </script>
-  <!-- Floating Timer Button -->
-  <div id="timer-floating-button" title="Open Timer" style="
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background: #ff6f00;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.8rem;
-    cursor: pointer;
-    z-index: 1000;
-  ">⏱</div>
-
-  <!-- Timer Modal -->
-  <div id="timer-modal" style="
-    display: none;
-    position: fixed;
-    bottom: 80px;
-    left: 20px;
-    background: #222;
-    padding: 1rem 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.7);
-    color: white;
-    font-family: 'Outfit', sans-serif;
-    z-index: 1001;
-    width: 220px;
-  ">
-    <h3 style="margin-top:0; margin-bottom: 0.5rem;">Timer</h3>
-    <div id="timer-display" style="font-size: 2rem; text-align: center; margin-bottom: 1rem;">00:00</div>
-    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
-      <button class="timer-btn" data-seconds="30" style="flex: 1; margin-right: 0.5rem; padding: 0.5rem; border:none; background:#ff6f00; color:#fff; border-radius: 6px; cursor: pointer;">30s</button>
-      <button class="timer-btn" data-seconds="60" style="flex: 1; margin-right: 0.5rem; padding: 0.5rem; border:none; background:#ff6f00; color:#fff; border-radius: 6px; cursor: pointer;">60s</button>
-      <button class="timer-btn" data-seconds="90" style="flex: 1; padding: 0.5rem; border:none; background:#ff6f00; color:#fff; border-radius: 6px; cursor: pointer;">90s</button>
-    </div>
-    <button id="timer-start-stop" style="width: 100%; padding: 0.6rem; border:none; background:#4caf50; color:#fff; border-radius: 6px; font-weight: 700; cursor: pointer;">Start</button>
   </div>
+</section>
 
-  <script>
-    (() => {
-      const floatingBtn = document.getElementById('timer-floating-button');
-      const timerModal = document.getElementById('timer-modal');
-      const timerDisplay = document.getElementById('timer-display');
-      const timerButtons = document.querySelectorAll('.timer-btn');
-      const startStopBtn = document.getElementById('timer-start-stop');
+<section>
+  <h2>Day 1 – Full Body (Bodyweight)</h2>
+  <ul>
+    <li>Bodyweight squats – 20 reps</li>
+    <li>Incline push-ups – 10–15 reps</li>
+    <li>Glute bridges – 15–20 reps</li>
+    <li>Plank shoulder taps – 20 total</li>
+    <li>Wall sit – 30 seconds</li>
+    <li>Bird-dogs – 8 per side</li>
+    <li><strong>Finisher:</strong> Plank – hold 1 minute</li>
+  </ul>
+</section>
 
-      let timerDuration = 0;
-      let timerRemaining = 0;
-      let timerInterval = null;
-      let timerRunning = false;
+<section>
+  <h2>Day 2 – Upper Body (Weights)</h2>
+  <ul>
+    <li>Dumbbell shoulder press – 10–12 reps</li>
+    <li>Bent-over rows – 10–12 reps</li>
+    <li>Chest press – 10–12 reps</li>
+    <li>Bicep curls – 12 reps</li>
+    <li>Tricep overhead extensions – 12 reps</li>
+    <li>Side planks – 30 sec each side</li>
+  </ul>
+</section>
+<section>
+  <h2>Day 3 – Lower Body + Core</h2>
+  <ul>
+    <li>Goblet squats – 12 reps</li>
+    <li>Dumbbell RDLs – 10 reps</li>
+    <li>Step-ups or lunges – 8–10 reps/leg</li>
+    <li>Calf raises – 20 reps</li>
+    <li>Kettlebell sumo squats – 10 reps</li>
+    <li>Leg raises – 12 reps</li>
+    <li>Russian twists – 20 total</li>
+  </ul>
+</section>
 
-      // Audio beep setup
-      const beepSound = new Audio('data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAABCxAgAEABAAZGF0YQAAAAA=');
+<section>
+  <h2>Day 4 – Full Body (Hybrid – KB/DB)</h2>
+  <ul>
+    <li>Kettlebell swings – 15–20 reps</li>
+    <li>Push-ups – 10–15 reps</li>
+    <li>Dumbbell rows – 10/side</li>
+    <li>Goblet squats – 15 reps</li>
+    <li>Dumbbell/Kettlebell deadlifts – 10 reps</li>
+    <li>Farmer’s carry – 30 seconds</li>
+    <li>Sit-ups or crunches – 15 reps</li>
+  </ul>
+</section>
 
-      function updateDisplay(seconds) {
-        const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
-        const secs = (seconds % 60).toString().padStart(2, '0');
-        timerDisplay.textContent = `${mins}:${secs}`;
-      }
+<section>
+  <h2>Weekly Progress Tracker</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Day</th>
+        <th>Workout</th>
+        <th>Week 1</th>
+        <th>Week 2</th>
+        <th>Week 3</th>
+        <th>Week 4</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Monday</td>
+        <td>Full Body (Bodyweight)</td>
+        <td><input type="checkbox" data-key="m1"></td>
+        <td><input type="checkbox" data-key="m2"></td>
+        <td><input type="checkbox" data-key="m3"></td>
+        <td><input type="checkbox" data-key="m4"></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Tuesday</td>
+        <td>Upper Body (Weights)</td>
+        <td><input type="checkbox" data-key="t1"></td>
+        <td><input type="checkbox" data-key="t2"></td>
+        <td><input type="checkbox" data-key="t3"></td>
+        <td><input type="checkbox" data-key="t4"></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Wednesday</td>
+        <td>Lower Body + Core</td>
+        <td><input type="checkbox" data-key="w1"></td>
+        <td><input type="checkbox" data-key="w2"></td>
+        <td><input type="checkbox" data-key="w3"></td>
+        <td><input type="checkbox" data-key="w4"></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Thursday</td>
+        <td>Full Body (Hybrid)</td>
+        <td><input type="checkbox" data-key="th1"></td>
+        <td><input type="checkbox" data-key="th2"></td>
+        <td><input type="checkbox" data-key="th3"></td>
+        <td><input type="checkbox" data-key="th4"></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Friday</td>
+        <td>Rest / Stretch</td>
+        <td><input type="checkbox" data-key="f1"></td>
+        <td><input type="checkbox" data-key="f2"></td>
+        <td><input type="checkbox" data-key="f3"></td>
+        <td><input type="checkbox" data-key="f4"></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<!–– Part 3 of 3 ––>
 
-      function startTimer() {
-        if (timerRemaining <= 0) return;
-        timerRunning = true;
-        startStopBtn.textContent = 'Stop';
-        timerInterval = setInterval(() => {
-          timerRemaining--;
-          updateDisplay(timerRemaining);
-          if (timerRemaining <= 0) {
-            clearInterval(timerInterval);
-            timerRunning = false;
-            startStopBtn.textContent = 'Start';
-            beepSound.play();
-          }
-        }, 1000);
-      }
+<!-- Floating Timer Button -->
+<div id="timer-floating-button" title="Open Timer" style="
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: #ff6f00;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 1000;
+">⏱</div>
 
-      function stopTimer() {
-        timerRunning = false;
+<!-- Timer Modal -->
+<div id="timer-modal" style="
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  left: 20px;
+  background: #222;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+  color: white;
+  font-family: 'Outfit', sans-serif;
+  z-index: 1001;
+  width: 220px;
+">
+  <h3 style="margin-top:0; margin-bottom: 0.5rem;">Timer</h3>
+  <div id="timer-display" style="font-size: 2rem; text-align: center; margin-bottom: 1rem;">00:00</div>
+  <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+    <button class="timer-btn" data-seconds="30" style="flex: 1; margin-right: 0.5rem; padding: 0.5rem; border:none; background:#ff6f00; color:#fff; border-radius: 6px; cursor: pointer;">30s</button>
+    <button class="timer-btn" data-seconds="60" style="flex: 1; margin-right: 0.5rem; padding: 0.5rem; border:none; background:#ff6f00; color:#fff; border-radius: 6px; cursor: pointer;">60s</button>
+    <button class="timer-btn" data-seconds="90" style="flex: 1; padding: 0.5rem; border:none; background:#ff6f00; color:#fff; border-radius: 6px; cursor: pointer;">90s</button>
+  </div>
+</div>
+<audio id="beep-sound">
+  <source src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" type="audio/ogg">
+  Your browser does not support the audio element.
+</audio>
+<script>
+(() => {
+  const floatingBtn = document.getElementById('timer-floating-button');
+  const timerModal = document.getElementById('timer-modal');
+  const timerDisplay = document.getElementById('timer-display');
+  const timerButtons = document.querySelectorAll('.timer-btn');
+  const beep = document.getElementById('beep-sound');
+
+  let timerDuration = 0;
+  let timerRemaining = 0;
+  let timerInterval = null;
+
+  function updateDisplay(seconds) {
+    const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
+    const secs = (seconds % 60).toString().padStart(2, '0');
+    timerDisplay.textContent = `${mins}:${secs}`;
+  }
+
+  function startTimer() {
+    if (timerRemaining <= 0) return;
+    clearInterval(timerInterval);
+    timerInterval = setInterval(() => {
+      timerRemaining--;
+      updateDisplay(timerRemaining);
+      if (timerRemaining <= 0) {
         clearInterval(timerInterval);
-        startStopBtn.textContent = 'Start';
+        beep.play();
       }
+    }, 1000);
+  }
 
-      floatingBtn.addEventListener('click', () => {
-        if (timerModal.style.display === 'none' || timerModal.style.display === '') {
-          timerModal.style.display = 'block';
-        } else {
-          timerModal.style.display = 'none';
-        }
-      });
+  floatingBtn.addEventListener('click', () => {
+    timerModal.style.display = timerModal.style.display === 'none' ? 'block' : 'none';
+  });
 
-      timerButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          stopTimer();
-          timerDuration = parseInt(btn.getAttribute('data-seconds'), 10);
-          timerRemaining = timerDuration;
-          updateDisplay(timerRemaining);
-        });
-      });
+  timerButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      timerDuration = parseInt(btn.getAttribute('data-seconds'), 10);
+      timerRemaining = timerDuration;
+      updateDisplay(timerRemaining);
+      startTimer();
+    });
+  });
 
-      startStopBtn.addEventListener('click', () => {
-        if (timerRunning) {
-          stopTimer();
-        } else {
-          startTimer();
-        }
-      });
+  updateDisplay(0);
+})();
+</script>
 
-      // Initialize display
-      updateDisplay(0);
-    })();
-  </script>
 </body>
 </html>
