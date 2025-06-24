@@ -1,214 +1,398 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8" /> <meta name="viewport" content="width=device-width, initial-scale=1" /> <title>Weekly Hybrid Workout Plan</title> <style> @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
-css
-Copy
-Edit
-body {
-  font-family: 'Outfit', sans-serif;
-  max-width: 850px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: #0f0f0f;
-  color: #f4f4f4;
-  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.6);
-  border-radius: 12px;
-  border: 2px solid #2d2d2d;
-  -webkit-tap-highlight-color: transparent; /* prevent highlight on mobile tap */
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Weekly Hybrid Workout Plan</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
 
-h1 {
-  text-align: center;
-  font-weight: 700;
-  font-size: 2.8rem;
-  margin-bottom: 0.3rem;
-  color: #ffffff;
-}
+    body {
+      font-family: 'Outfit', sans-serif;
+      max-width: 850px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #0f0f0f;
+      color: #f4f4f4;
+      box-shadow: 0 4px 40px rgba(0, 0, 0, 0.6);
+      border-radius: 12px;
+      border: 2px solid #2d2d2d;
+    }
 
-p.subtitle {
-  text-align: center;
-  margin-top: 0;
-  font-style: italic;
-  color: #ccc;
-  font-size: 1.1rem;
-}
+    h1 {
+      text-align: center;
+      font-weight: 700;
+      font-size: 2.8rem;
+      margin-bottom: 0.3rem;
+      color: #ffffff;
+    }
 
-section {
-  margin-bottom: 2.5rem;
-}
+    p.subtitle {
+      text-align: center;
+      margin-top: 0;
+      font-style: italic;
+      color: #ccc;
+      font-size: 1.1rem;
+    }
 
-h2 {
-  color: #ffffff;
-  background-color: #1d1d1d;
-  padding: 0.6rem 1rem;
-  border-left: 6px solid #ff6f00;
-  border-radius: 6px;
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-}
+    section {
+      margin-bottom: 2.5rem;
+    }
 
-ul {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
+    h2 {
+      color: #ffffff;
+      background-color: #1d1d1d;
+      padding: 0.6rem 1rem;
+      border-left: 6px solid #ff6f00;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
 
-ul li {
-  background: #1a1a1a;
-  border: 1px solid #333;
-  padding: 0.8rem 1rem;
-  margin-bottom: 0.5rem;
-  border-radius: 6px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  -webkit-touch-callout: none;
-}
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
 
-ul li.completed {
-  background-color: #ff6f00 !important;
-  color: #ffffff !important;
-  text-decoration: line-through;
-}
+    ul li {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      padding: 0.8rem 1rem;
+      margin-bottom: 0.5rem;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
 
-.stretch-columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
+    ul li.completed {
+      background-color: #ff6f00 !important;
+      color: #ffffff !important;
+      text-decoration: line-through;
+    }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1.2rem;
-  font-size: 1.05rem;
-  background: #1a1a1a;
-}
+    .stretch-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
 
-th, td {
-  padding: 0.75rem;
-  border: 1px solid #444;
-  text-align: center;
-}
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.2rem;
+      font-size: 1.05rem;
+      background: #1a1a1a;
+    }
 
-th {
-  background-color: #222;
-  color: #fff;
-  font-weight: 700;
-}
+    th, td {
+      padding: 0.75rem;
+      border: 1px solid #444;
+      text-align: center;
+    }
 
-td:first-child {
-  font-weight: 600;
-}
+    th {
+      background-color: #222;
+      color: #fff;
+      font-weight: 700;
+    }
 
-input[type="checkbox"] {
-  transform: scale(1.2);
-}
+    td:first-child {
+      font-weight: 600;
+    }
 
-/* Floating Timer Button on left side */
-#timer-floating-button {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  background: #ff6f00;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.8rem;
-  cursor: pointer;
-  z-index: 1000;
-  user-select: none;
-}
+    input[type="checkbox"] {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>Weekly Hybrid Workout Plan</h1>
+  <p class="subtitle">4 Days/Week • 15–20 Minutes • Bodyweight + Minimal Equipment<br>Each workout = 3 rounds. Rest 30–60 seconds between exercises & rounds.</p>
 
-/* Timer Modal Styling */
-#timer-modal {
-  display: none;
-  position: fixed;
-  bottom: 80px;
-  left: 20px;
-  background: #222;
-  padding: 1rem 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.7);
-  color: white;
-  font-family: 'Outfit', sans-serif;
-  z-index: 1001;
-  width: 230px;
-  user-select: none;
-}
+  <section>
+    <h2>Pre-Workout Stretch Menu</h2>
+    <p style="margin-bottom: 1rem;">Pick 3–4 movements to warm up before training. Flow intuitively or mix and match!</p>
+    <div class="stretch-columns">
+      <ul>
+        <li>Jumping jacks x 30</li>
+        <li>Forward fold – 30 sec</li>
+        <li>Cat-cow x 10</li>
+        <li>High knees x 20</li>
+        <li>Neck rolls x 5 each way</li>
+        <li>Arm circles – 10 forward/backward</li>
+        <li>Hip circles – 10 reps</li>
+      </ul>
+      <ul>
+        <li>Lunging hip stretch – 30 sec/leg</li>
+        <li>Shoulder rolls – 10 reps</li>
+        <li>Inchworm to cobra – 5x</li>
+        <li>World’s greatest stretch – 2x/side</li>
+        <li>Standing side bends – 10/side</li>
+        <li>Ankle circles – 10 each</li>
+        <li>Torso twists – 20 reps</li>
+      </ul>
+    </div>
+  </section>
 
-#timer-modal h3 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-}
+  <section>
+    <h2>Day 1 – Full Body (Bodyweight)</h2>
+    <ul>
+      <li>Bodyweight squats – 20 reps</li>
+      <li>Incline push-ups – 10–15 reps</li>
+      <li>Glute bridges – 15–20 reps</li>
+      <li>Plank shoulder taps – 20 total</li>
+      <li>Wall sit – 30 seconds</li>
+      <li>Bird-dogs – 8 per side</li>
+      <li><strong>Finisher:</strong> Plank – hold 1 minute</li>
+    </ul>
+  </section>
 
-#timer-display {
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 1rem;
-  font-variant-numeric: tabular-nums;
-  font-weight: 700;
-  letter-spacing: 2px;
-}
+  <section>
+    <h2>Day 2 – Upper Body (Weights)</h2>
+    <ul>
+      <li>Dumbbell shoulder press – 10–12 reps</li>
+      <li>Bent-over rows – 10–12 reps</li>
+      <li>Chest press – 10–12 reps</li>
+      <li>Bicep curls – 12 reps</li>
+      <li>Tricep overhead extensions – 12 reps</li>
+      <li>Side planks – 30 sec each side</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Day 3 – Lower Body + Core</h2>
+    <ul>
+      <li>Goblet squats – 12 reps</li>
+      <li>Dumbbell RDLs – 10 reps</li>
+      <li>Step-ups or lunges – 8–10 reps/leg</li>
+      <li>Calf raises – 20 reps</li>
+      <li>Kettlebell sumo squats – 10 reps</li>
+      <li>Leg raises – 12 reps</li>
+      <li>Russian twists – 20 total</li>
+    </ul>
+  </section>
 
-.timer-btn {
-  flex: 1;
-  margin-right: 0.5rem;
-  padding: 0.5rem;
-  border: none;
-  background: #ff6f00;
-  color: #fff;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 700;
-  user-select: none;
-  transition: background-color 0.3s ease;
-}
+  <section>
+    <h2>Day 4 – Full Body (Hybrid – KB/DB)</h2>
+    <ul>
+      <li>Kettlebell swings – 15–20 reps</li>
+      <li>Push-ups – 10–15 reps</li>
+      <li>Dumbbell rows – 10/side</li>
+      <li>Goblet squats – 15 reps</li>
+      <li>Dumbbell/Kettlebell deadlifts – 10 reps</li>
+      <li>Farmer’s carry – 30 seconds</li>
+      <li>Sit-ups or crunches – 15 reps</li>
+    </ul>
+  </section>
 
-.timer-btn:last-child {
-  margin-right: 0;
-}
+  <section>
+    <h2>Weekly Progress Tracker</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Workout</th>
+          <th>Week 1</th>
+          <th>Week 2</th>
+          <th>Week 3</th>
+          <th>Week 4</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Monday</td>
+          <td>Full Body (Bodyweight)</td>
+          <td><input type="checkbox" data-key="m1"></td>
+          <td><input type="checkbox" data-key="m2"></td>
+          <td><input type="checkbox" data-key="m3"></td>
+          <td><input type="checkbox" data-key="m4"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Tuesday</td>
+          <td>Upper Body (Weights)</td>
+          <td><input type="checkbox" data-key="t1"></td>
+          <td><input type="checkbox" data-key="t2"></td>
+          <td><input type="checkbox" data-key="t3"></td>
+          <td><input type="checkbox" data-key="t4"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Wednesday</td>
+          <td>Lower Body + Core</td>
+          <td><input type="checkbox" data-key="w1"></td>
+          <td><input type="checkbox" data-key="w2"></td>
+          <td><input type="checkbox" data-key="w3"></td>
+          <td><input type="checkbox" data-key="w4"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Thursday</td>
+          <td>Full Body (Hybrid)</td>
+          <td><input type="checkbox" data-key="th1"></td>
+          <td><input type="checkbox" data-key="th2"></td>
+          <td><input type="checkbox" data-key="th3"></td>
+          <td><input type="checkbox" data-key="th4"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Friday</td>
+          <td>Rest / Stretch</td>
+          <td><input type="checkbox" data-key="f1"></td>
+          <td><input type="checkbox" data-key="f2"></td>
+          <td><input type="checkbox" data-key="f3"></td>
+          <td><input type="checkbox" data-key="f4"></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <script>
+    // Click to toggle completed
+    document.querySelectorAll('ul li').forEach(item => {
+      item.addEventListener('click', () => {
+        item.classList.toggle('completed');
+      });
 
-.timer-btn:hover {
-  background-color: #e65c00;
-}
+      let pressTimer;
+      const longPressDuration = 600;
 
-#timer-start-stop {
-  width: 100%;
-  padding: 0.6rem;
-  border: none;
-  background: #4caf50;
-  color: #fff;
-  border-radius: 6px;
-  font-weight: 700;
-  cursor: pointer;
-  user-select: none;
-  transition: background-color 0.3s ease;
-  margin-top: 0;
-  display: none; /* Hidden since we start timer immediately on button click */
-}
+      item.addEventListener('touchstart', () => {
+        pressTimer = setTimeout(() => {
+          shuffleExercise(item);
+        }, longPressDuration);
+      });
 
-#timer-start-stop:hover {
-  background-color: #3b8b33;
-}
-</style> </head> <body> <h1>Weekly Hybrid Workout Plan</h1> <p class="subtitle">4 Days/Week • 15–20 Minutes • Bodyweight + Minimal Equipment<br>Each workout = 3 rounds. Rest 30–60 seconds between exercises & rounds.</p> <section> <h2>Pre-Workout Stretch Menu</h2> <p style="margin-bottom: 1rem;">Pick 3–4 movements to warm up before training. Flow intuitively or mix and match!</p> <div class="stretch-columns"> <ul> <li>Jumping jacks x 30</li> <li>Forward fold – 30 sec</li> <li>Cat-cow x 10</li> <li>High knees x 20</li> <li>Neck rolls x 5 each way</li> <li>Arm circles – 10 forward/backward</li> <li>Hip circles – 10 reps</li> </ul> <ul> <li>Lunging hip stretch – 30 sec/leg</li> <li>Shoulder rolls – 10 reps</li> <li>Inchworm to cobra – 5x</li> <li>World’s greatest stretch – 2x/side</li> <li>Standing side bends – 10/side</li> <li>Ankle circles – 10 each</li> <li>Torso twists – 20 reps</li> </ul> </div> </section> <section> <h2>Day 1 – Full Body (Bodyweight)</h2> <ul> <li>Bodyweight squats – 20 reps</li> <li>Incline push-ups – 10–15 reps</li> <li>Glute bridges – 15–20 reps</li> <li>Plank shoulder taps – 20 total</li> <li>Wall sit – 30 seconds</li> <li>Bird-dogs – 8 per side</li> <li><strong>Finisher:</strong> Plank – hold 1 minute</li> </ul> </section> <section> <h2>Day 2 – Upper Body (Weights)</h2> <ul> <li>Dumbbell shoulder press – 10–12 reps</li> <li>Bent-over rows – 10–12 reps</li> <li>Chest press – 10–12 reps</li> <li>Bicep curls – 12 reps</li> <li>Tricep overhead extensions – 12 reps</li> <li>Side planks – 30 sec each side</li> </ul> </section>
-Part 2/3 coming now.
+      item.addEventListener('touchend', () => clearTimeout(pressTimer));
+      item.addEventListener('mousedown', () => {
+        pressTimer = setTimeout(() => {
+          shuffleExercise(item);
+        }, longPressDuration);
+      });
+      item.addEventListener('mouseup', () => clearTimeout(pressTimer));
+      item.addEventListener('mouseleave', () => clearTimeout(pressTimer));
+    });
 
-<section> <h2>Day 3 – Lower Body + Core</h2> <ul> <li>Goblet squats – 12 reps</li> <li>Dumbbell RDLs – 10 reps</li> <li>Step-ups or lunges – 8–10 reps/leg</li> <li>Calf raises – 20 reps</li> <li>Kettlebell sumo squats – 10 reps</li> <li>Leg raises – 12 reps</li> <li>Russian twists – 20 total</li> </ul> </section> <section> <h2>Day 4 – Full Body (Hybrid – KB/DB)</h2> <ul> <li>Kettlebell swings – 15–20 reps</li> <li>Push-ups – 10–15 reps</li> <li>Dumbbell rows – 10/side</li> <li>Goblet squats – 15 reps</li> <li>Dumbbell/Kettlebell deadlifts – 10 reps</li> <li>Farmer’s carry – 30 seconds</li> <li>Sit-ups or crunches – 15 reps</li> </ul> </section> <section> <h2>Weekly Progress Tracker</h2> <table> <thead> <tr> <th>Day</th> <th>Workout</th> <th>Week 1</th> <th>Week 2</th> <th>Week 3</th> <th>Week 4</th> <th>Notes</th> </tr> </thead> <tbody> <tr> <td>Monday</td> <td>Full Body (Bodyweight)</td> <td><input type="checkbox" data-key="m1"></td> <td><input type="checkbox" data-key="m2"></td> <td><input type="checkbox" data-key="m3"></td> <td><input type="checkbox" data-key="m4"></td> <td></td> </tr> <tr> <td>Tuesday</td> <td>Upper Body (Weights)</td> <td><input type="checkbox" data-key="t1"></td> <td><input type="checkbox" data-key="t2"></td> <td><input type="checkbox" data-key="t3"></td> <td><input type="checkbox" data-key="t4"></td> <td></td> </tr> <tr> <td>Wednesday</td> <td>Lower Body + Core</td> <td><input type="checkbox" data-key="w1"></td> <td><input type="checkbox" data-key="w2"></td> <td><input type="checkbox" data-key="w3"></td> <td><input type="checkbox" data-key="w4"></td> <td></td> </tr> <tr> <td>Thursday</td> <td>Full Body (Hybrid)</td> <td><input type="checkbox" data-key="th1"></td> <td><input type="checkbox" data-key="th2"></td> <td><input type="checkbox" data-key="th3"></td> <td><input type="checkbox" data-key="th4"></td> <td></td> </tr> <tr> <td>Friday</td> <td>Rest / Stretch</td> <td><input type="checkbox" data-key="f1"></td> <td><input type="checkbox" data-key="f2"></td> <td><input type="checkbox" data-key="f3"></td> <td><input type="checkbox" data-key="f4"></td> <td></td> </tr> </tbody> </table> </section> <script> // Click to toggle completed (cross out) document.querySelectorAll('ul li').forEach(item => { let pressTimer; const longPressDuration = 600; // ms let longPressFired = false; // Handle click/tap: toggle completed only if no long press item.addEventListener('click', e => { if (longPressFired) { longPressFired = false; return; // skip toggling if long press triggered } item.classList.toggle('completed'); }); // Long press handlers for mouse and touch item.addEventListener('touchstart', e => { longPressFired = false; pressTimer = setTimeout(() => { shuffleExercise(item); longPressFired = true; }, longPressDuration); }); item.addEventListener('touchend', e => { clearTimeout(pressTimer); }); item.addEventListener('mousedown', e => { longPressFired = false; pressTimer = setTimeout(() => { shuffleExercise(item); longPressFired = true; }, longPressDuration); }); item.addEventListener('mouseup', e => { clearTimeout(pressTimer); }); item.addEventListener('mouseleave', e => { clearTimeout(pressTimer); }); }); // Pools of similar exercises for swapping const exercisePools = { "Day 1 – Full Body (Bodyweight)": [ "Bodyweight squats – 20 reps", "Jump squats – 15 reps", "Wall sit – 30 seconds", "Glute bridges – 15–20 reps", "Bird-dogs – 8 per side", "Step-back lunges – 10 per leg", "Plank shoulder taps – 20 total", "Incline push-ups – 10–15 reps", "Wall push-ups – 15 reps" ], "Day 2 – Upper Body (Weights)": [ "Dumbbell shoulder press – 10–12 reps", "Bent-over rows – 10–12 reps", "Chest press – 10–12 reps", "Bicep curls – 12 reps", "Tricep overhead extensions – 12 reps", "Side planks – 30 sec each side", "Dumbbell lateral raises – 12 reps", "Dumbbell hammer curls – 12 reps", "Push-ups – 15 reps" ], "Day 3 – Lower Body + Core": [ "Goblet squats – 12 reps", "Dumbbell RDLs – 10 reps", "Step-ups or lunges – 8–10 reps/leg", "Calf raises – 20 reps", "Kettlebell sumo squats – 10 reps", "Leg raises – 12 reps", "Russian twists – 20 total", "Mountain climbers – 30 seconds", "Side leg raises – 15 reps per side" ], "Day 4 – Full Body (Hybrid – KB/DB)": [ "Kettlebell swings – 15–20 reps", "Push-ups – 10–15 reps", "Dumbbell rows – 10/side", "Goblet squats – 15 reps", "Dumbbell/Kettlebell deadlifts – 10 reps", "Farmer’s carry – 30 seconds", "Sit-ups or crunches – 15 reps", "Kettlebell clean and press – 10 reps", "Renegade rows – 12 reps" ] }; function shuffleExercise(item) { const section = item.closest('section'); if (!section) return; const sectionTitle = section.querySelector('h2').textContent.trim(); const pool = exercisePools[sectionTitle]; if (!pool) return; const currentText = item.textContent.trim(); const alternatives = pool.filter(ex => ex !== currentText); if (alternatives.length === 0) return; const newExercise = alternatives[Math.floor(Math.random() * alternatives.length)]; item.textContent = newExercise; item.classList.remove('completed'); // remove cross-out on swap } // Persist progress tracker checkboxes to localStorage document.querySelectorAll('input[type="checkbox"]').forEach(cb => { const key = cb.getAttribute('data-key'); if (!key) return; cb.checked = localStorage.getItem(key) === 'true'; cb.addEventListener('change', () => { localStorage.setItem(key, cb.checked); }); }); </script>
-Part 3/3 coming now.  <script>
+    const exercisePools = {
+      "Day 1 – Full Body (Bodyweight)": [
+        "Bodyweight squats – 20 reps", "Jump squats – 15 reps",
+        "Wall sit – 30 seconds", "Glute bridges – 15–20 reps",
+        "Bird-dogs – 8 per side", "Step-back lunges – 10 per leg",
+        "Plank shoulder taps – 20 total", "Incline push-ups – 10–15 reps",
+        "Wall push-ups – 15 reps"
+      ],
+      "Day 2 – Upper Body (Weights)": [
+        "Dumbbell shoulder press – 10–12 reps", "Bent-over rows – 10–12 reps",
+        "Chest press – 10–12 reps", "Bicep curls – 12 reps",
+        "Tricep overhead extensions – 12 reps", "Side planks – 30 sec each side",
+        "Dumbbell lateral raises – 12 reps", "Dumbbell hammer curls – 12 reps",
+        "Push-ups – 15 reps"
+      ],
+      "Day 3 – Lower Body + Core": [
+        "Goblet squats – 12 reps", "Dumbbell RDLs – 10 reps",
+        "Step-ups or lunges – 8–10 reps/leg", "Calf raises – 20 reps",
+        "Kettlebell sumo squats – 10 reps", "Leg raises – 12 reps",
+        "Russian twists – 20 total", "Mountain climbers – 30 seconds",
+        "Side leg raises – 15 reps per side"
+      ],
+      "Day 4 – Full Body (Hybrid – KB/DB)": [
+        "Kettlebell swings – 15–20 reps", "Push-ups – 10–15 reps",
+        "Dumbbell rows – 10/side", "Goblet squats – 15 reps",
+        "Dumbbell/Kettlebell deadlifts – 10 reps", "Farmer’s carry – 30 seconds",
+        "Sit-ups or crunches – 15 reps", "Kettlebell clean and press – 10 reps",
+        "Renegade rows – 12 reps"
+      ]
+    };
+
+    function shuffleExercise(item) {
+      let section = item.closest('section');
+      if (!section) return;
+      let sectionTitle = section.querySelector('h2').textContent.trim();
+
+      const pool = exercisePools[sectionTitle];
+      if (!pool) return;
+
+      const current = item.textContent.trim();
+      const alternatives = pool.filter(ex => ex !== current);
+      if (alternatives.length === 0) return;
+
+      const newExercise = alternatives[Math.floor(Math.random() * alternatives.length)];
+      item.textContent = newExercise;
+      item.classList.remove('completed');
+    }
+
+    // Persist checkbox state
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+      const key = checkbox.getAttribute('data-key');
+      checkbox.checked = localStorage.getItem(key) === 'true';
+
+      checkbox.addEventListener('change', () => {
+        localStorage.setItem(key, checkbox.checked);
+      });
+    });
+  </script>
+
+  <!-- Floating Timer Button -->
+  <div id="timer-floating-button" title="Open Timer" style="
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #ff6f00;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 1000;
+  ">⏱</div>
+
+  <!-- Timer Modal -->
+  <div id="timer-modal" style="
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    left: 20px;
+    background: #222;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+    color: white;
+    font-family: 'Outfit', sans-serif;
+    z-index: 1001;
+    width: 220px;
+  ">
+    <h3 style="margin-top:0; margin-bottom: 0.5rem;">Timer</h3>
+    <div id="timer-display" style="font-size: 2rem; text-align: center; margin-bottom: 1rem;">00:00</div>
+    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+      <button class="timer-btn" data-seconds="30" style="flex: 1; margin-right: 0.5rem; padding: 0.5rem; border:none; background:#ff6f00; color:#fff; border-radius: 6px; cursor: pointer;">30s</button>
+      <button class="timer-btn" data-seconds="60" style="flex: 1; margin-right: 0.5rem; padding: 0.5rem; border:none; background:#ff6f00; color:#fff; border-radius: 6px; cursor: pointer;">60s</button>
+      <button class="timer-btn" data-seconds="90" style="flex: 1; padding: 0.5rem; border:none; background:#ff6f00; color:#fff; border-radius: 6px; cursor: pointer;">90s</button>
+    </div>
+    <button id="timer-start-stop" style="width: 100%; padding: 0.6rem; border:none; background:#4caf50; color:#fff; border-radius: 6px; font-weight: 700; cursor: pointer;">Start</button>
+  </div>
+
+  <audio id="timer-sound" preload="auto">
+    <source src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" type="audio/ogg">
+    <source src="https://actions.google.com/sounds/v1/alarms/beep_short.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
     (() => {
       const floatingBtn = document.getElementById('timer-floating-button');
       const timerModal = document.getElementById('timer-modal');
       const timerDisplay = document.getElementById('timer-display');
       const timerButtons = document.querySelectorAll('.timer-btn');
       const startStopBtn = document.getElementById('timer-start-stop');
+      const timerSound = document.getElementById('timer-sound');
 
       let timerDuration = 0;
       let timerRemaining = 0;
@@ -221,27 +405,18 @@ Part 3/3 coming now.  <script>
         timerDisplay.textContent = `${mins}:${secs}`;
       }
 
-      function beep() {
-        try {
-          const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-
-          for (let i = 0; i < 3; i++) {
-            const oscillator = audioCtx.createOscillator();
-            const gainNode = audioCtx.createGain();
-
-            oscillator.connect(gainNode);
-            gainNode.connect(audioCtx.destination);
-
-            oscillator.type = 'sine';
-            oscillator.frequency.setValueAtTime(1000, audioCtx.currentTime + i * 0.4);
-            gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime + i * 0.4);
-
-            oscillator.start(audioCtx.currentTime + i * 0.4);
-            oscillator.stop(audioCtx.currentTime + i * 0.4 + 0.25);
+      function playBeep(count = 3) {
+        let i = 0;
+        function beep() {
+          if (i < count) {
+            timerSound.volume = 0.9;
+            timerSound.currentTime = 0;
+            timerSound.play();
+            i++;
+            setTimeout(beep, 500);
           }
-        } catch {
-          alert('Timer done!');
         }
+        beep();
       }
 
       function startTimer() {
@@ -255,7 +430,7 @@ Part 3/3 coming now.  <script>
             clearInterval(timerInterval);
             timerRunning = false;
             startStopBtn.textContent = 'Start';
-            beep();
+            playBeep();
           }
         }, 1000);
       }
@@ -267,7 +442,7 @@ Part 3/3 coming now.  <script>
       }
 
       floatingBtn.addEventListener('click', () => {
-        timerModal.style.display = timerModal.style.display === 'none' ? 'block' : 'none';
+        timerModal.style.display = timerModal.style.display === 'block' ? 'none' : 'block';
       });
 
       timerButtons.forEach(btn => {
@@ -276,6 +451,7 @@ Part 3/3 coming now.  <script>
           timerDuration = parseInt(btn.getAttribute('data-seconds'), 10);
           timerRemaining = timerDuration;
           updateDisplay(timerRemaining);
+          startTimer(); // Immediately start
         });
       });
 
@@ -290,6 +466,5 @@ Part 3/3 coming now.  <script>
       updateDisplay(0);
     })();
   </script>
-
 </body>
 </html>
